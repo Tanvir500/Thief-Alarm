@@ -1,0 +1,23 @@
+* Schematics Netlist *
+
+
+
+D_D3         $N_0001 $N_0002 D1N4001 
+D_D4         Sw_emerg $N_0002 D1N4001 
+D_D2         $N_0001 Door D1N4001 
+D_D1         $N_0001 $N_0003 D1N4001 
+V_V10         $N_0004 0 9
+V_V9         $N_0005 0 9
+R_Buzzer         $N_0002 0  100k  
+V_V1         $N_0006 0 5
+X_U5         $N_0003 0 Sw_tClose PARAMS: tClose=2 ttran=1u Rclosed=0.01
++  Ropen=1Meg
+V_V11         $N_0007 0 9
+X_U6         $N_0007 Sw_emerg Sw_tClose PARAMS: tClose=2 ttran=1u Rclosed=0.01
++  Ropen=1Meg
+X_U4         Door 0 Sw_tClose PARAMS: tClose=2 ttran=1u Rclosed=0.01 Ropen=1Meg
+R_R4         Door $N_0005  220  
+R_R5         $N_0003 $N_0004  220  
+R_R1         $N_0001 $N_0006  220  
+R_R2         0 $N_0002  10k  
+R_R6         0 Sw_emerg  1k  

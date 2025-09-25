@@ -1,0 +1,232 @@
+
+**** 01/24/22 15:07:30 ********* PSpice 9.2 (Mar 2000) ******** ID# 0 ********
+
+ * D:\L2 T1(All) EEE,BUET Tanvir\L2 T1 - EEE 202 (Electronic 1 Lab)\Hardware\Project\Final.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.2
+* Mon Jan 24 15:07:30 2022
+
+
+
+** Analysis setup **
+.tran .1 6s .01 .01
+.OP 
+
+
+* From [PSPICE NETLIST] section of C:\Program Files\Orcad\PSpice\PSpice.ini:
+.lib "nom.lib"
+
+.INC "Final.net"
+
+
+
+**** INCLUDING Final.net ****
+* Schematics Netlist *
+
+
+
+D_D3         $N_0001 $N_0002 D1N4001 
+D_D4         Sw_emerg $N_0002 D1N4001 
+D_D2         $N_0001 Door D1N4001 
+D_D1         $N_0001 $N_0003 D1N4001 
+V_V10         $N_0004 0 9
+V_V9         $N_0005 0 9
+R_Buzzer         $N_0002 0  100k  
+V_V1         $N_0006 0 5
+X_U5         $N_0003 0 Sw_tClose PARAMS: tClose=2 ttran=1u Rclosed=0.01
++  Ropen=1Meg
+V_V11         $N_0007 0 9
+X_U6         $N_0007 Sw_emerg Sw_tClose PARAMS: tClose=2 ttran=1u Rclosed=0.01
++  Ropen=1Meg
+X_U4         Door 0 Sw_tClose PARAMS: tClose=2 ttran=1u Rclosed=0.01 Ropen=1Meg
+R_R4         Door $N_0005  220  
+R_R5         $N_0003 $N_0004  220  
+R_R1         $N_0001 $N_0006  220  
+R_R2         0 $N_0002  10k  
+R_R6         0 Sw_emerg  1k  
+
+**** RESUMING Final.cir ****
+.PROBE V(*) I(*) W(*) D(*) NOISE(*) 
+
+
+.END
+
+**** 01/24/22 15:07:30 ********* PSpice 9.2 (Mar 2000) ******** ID# 0 ********
+
+ * D:\L2 T1(All) EEE,BUET Tanvir\L2 T1 - EEE 202 (Electronic 1 Lab)\Hardware\Project\Final.sch
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D1N4001         
+          IS   14.110000E-09 
+           N    1.984        
+         IKF   94.81         
+          BV   75            
+         IBV   10.000000E-06 
+          RS     .03389      
+          TT    5.700000E-06 
+         CJO   25.890000E-12 
+          VJ     .3245       
+           M     .44         
+
+
+**** 01/24/22 15:07:30 ********* PSpice 9.2 (Mar 2000) ******** ID# 0 ********
+
+ * D:\L2 T1(All) EEE,BUET Tanvir\L2 T1 - EEE 202 (Electronic 1 Lab)\Hardware\Project\Final.sch
+
+
+ ****     Voltage Controlled Switch MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U5.Smod       X_U6.Smod       X_U4.Smod       
+         RON     .01             .01             .01         
+        ROFF    1.000000E+06    1.000000E+06    1.000000E+06 
+         VON    1               1               1            
+        VOFF    0               0               0            
+
+
+**** 01/24/22 15:07:30 ********* PSpice 9.2 (Mar 2000) ******** ID# 0 ********
+
+ * D:\L2 T1(All) EEE,BUET Tanvir\L2 T1 - EEE 202 (Electronic 1 Lab)\Hardware\Project\Final.sch
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+( Door)    8.9980  (X_U4.3)    0.0000 (X_U5.3)    0.0000 (X_U6.3)    0.0000     
+
+($N_0001)    4.8945                   ($N_0002)    4.3591                       
+
+($N_0003)    8.9980                   ($N_0004)    9.0000                       
+
+($N_0005)    9.0000                   ($N_0006)    5.0000                       
+
+($N_0007)    9.0000                   (Sw_emerg)     .0090                  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V10       -9.012E-06
+    V_V9        -9.012E-06
+    V_V1        -4.795E-04
+    V_V11       -8.991E-06
+    X_U5.V1      0.000E+00
+    X_U6.V1      0.000E+00
+    X_U4.V1      0.000E+00
+
+    TOTAL POWER DISSIPATION   2.64E-03  WATTS
+
+
+**** 01/24/22 15:07:30 ********* PSpice 9.2 (Mar 2000) ******** ID# 0 ********
+
+ * D:\L2 T1(All) EEE,BUET Tanvir\L2 T1 - EEE 202 (Electronic 1 Lab)\Hardware\Project\Final.sch
+
+
+ ****     OPERATING POINT INFORMATION      TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+
+
+
+**** DIODES
+
+
+NAME         D_D3        D_D4        D_D2        D_D1      
+MODEL        D1N4001     D1N4001     D1N4001     D1N4001   
+ID           4.80E-04   -1.41E-08   -1.41E-08   -1.41E-08 
+VD           5.35E-01   -4.35E+00   -4.10E+00   -4.10E+00 
+REQ          1.07E+02    1.00E+12    1.00E+12    1.00E+12 
+CAP          5.33E-08    8.01E-12    8.20E-12    8.20E-12 
+
+
+**** VOLTAGE CONTROLLED SWITCHES
+
+
+NAME         X_U5.S1     X_U6.S1     X_U4.S1   
+MODEL        X_U5.Smod   X_U6.Smod   X_U4.Smod 
+I LOAD       9.00E-06    8.99E-06    9.00E-06 
+V LOAD       9.00E+00    8.99E+00    9.00E+00 
+R LOAD       1.00E+06    1.00E+06    1.00E+06 
+V CTRL       0.00E+00    0.00E+00    0.00E+00 
+**** 01/24/22 15:07:30 ********* PSpice 9.2 (Mar 2000) ******** ID# 0 ********
+
+ * D:\L2 T1(All) EEE,BUET Tanvir\L2 T1 - EEE 202 (Electronic 1 Lab)\Hardware\Project\Final.sch
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+( Door)    8.9980  (X_U4.3)    0.0000 (X_U5.3)    0.0000 (X_U6.3)    0.0000     
+
+($N_0001)    4.8945                   ($N_0002)    4.3591                       
+
+($N_0003)    8.9980                   ($N_0004)    9.0000                       
+
+($N_0005)    9.0000                   ($N_0006)    5.0000                       
+
+($N_0007)    9.0000                   (Sw_emerg)     .0090                  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V10       -9.012E-06
+    V_V9        -9.012E-06
+    V_V1        -4.795E-04
+    V_V11       -8.991E-06
+    X_U5.V1      0.000E+00
+    X_U6.V1      0.000E+00
+    X_U4.V1      0.000E+00
+
+    TOTAL POWER DISSIPATION   2.64E-03  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .08
+
